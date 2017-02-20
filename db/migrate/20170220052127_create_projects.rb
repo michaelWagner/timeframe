@@ -1,7 +1,7 @@
 class CreateProjects < ActiveRecord::Migration
   def change
     create_table :projects do |t|
-      t.integer :task_id
+      t.integer :project_id
       t.string :title
       t.text :description
       t.datetime :due_date

@@ -18,7 +18,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, project: { assignee_id: @project.assignee_id, created_at: @project.created_at, description: @project.description, due_date: @project.due_date, open: @project.open, position: @project.position, task_id: @project.task_id, title: @project.title, updated_at: @project.updated_at }
+      post :create, project: { assignee_id: @project.assignee_id, created_at: @project.created_at, description: @project.description, due_date: @project.due_date, open: @project.open, position: @project.position, project_id: @project.project_id, title: @project.title, updated_at: @project.updated_at }
     end
 
     assert_redirected_to project_path(assigns(:project))
@@ -35,7 +35,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should update project" do
-    patch :update, id: @project, project: { assignee_id: @project.assignee_id, created_at: @project.created_at, description: @project.description, due_date: @project.due_date, open: @project.open, position: @project.position, task_id: @project.task_id, title: @project.title, updated_at: @project.updated_at }
+    patch :update, id: @project, project: { assignee_id: @project.assignee_id, created_at: @project.created_at, description: @project.description, due_date: @project.due_date, open: @project.open, position: @project.position, project_id: @project.project_id, title: @project.title, updated_at: @project.updated_at }
     assert_redirected_to project_path(assigns(:project))
   end
 

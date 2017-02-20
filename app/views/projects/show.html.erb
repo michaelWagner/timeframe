@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Task:</strong>
-  <%= @project.task_id %>
+  <strong>Project:</strong>
+  <%= @project.id %>
 </p>
 
 <p>
@@ -47,3 +47,4 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+<%= link_to 'New Task', new_project_task_path(@project) %>

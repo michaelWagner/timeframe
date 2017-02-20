@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @task.id %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @task.project_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @task.open %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @task.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @task.updated_at %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @task.priority %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @task.position %>
+</p>
+
+<p>
+  <strong>Assignee:</strong>
+  <%= @task.assignee_id %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @task.project %>
+</p>
+
+<%= link_to 'Edit', edit_project_task_path(params[:project_id], @task) %> |
+<%= link_to 'Back', project_tasks_path %>
