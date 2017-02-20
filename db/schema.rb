@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220040231) do
+ActiveRecord::Schema.define(version: 20170220044740) do
 
   create_table "projects", force: :cascade do |t|
     t.integer  "task_id"
