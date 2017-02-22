@@ -4,6 +4,8 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
+    @project = Project.find(params[:project_id])
+    @task = Task.find(params[:task_id])
     @comments = Comment.all
   end
 
@@ -15,6 +17,8 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @project = Project.find(params[:project_id])
+    @task = Task.find(params[:task_id])
   end
 
   # GET /comments/1/edit
@@ -24,11 +28,13 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    @project = Project.find(params[:project_id])
+    @task = Task.find(params[:task_id])
     @comment = Comment.new(comment_params)
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to project_task_comment_path(@project, @task, @comment), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -54,9 +60,12 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment.destroy
+    @comment = Comment.find(params[:id])
+    if @comment.present?
+      @comment.destroy
+    end
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to project_task_comments_url, notice: 'Comment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,7 +73,9 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = Comment.find_by(id: params[:id])
+      @task = Task.find(params[:task_id])
+      @project = Project.find(params[:project_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

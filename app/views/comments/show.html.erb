@@ -30,5 +30,5 @@
   <%= @comment.task %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', edit_project_task_comment_path(params[:project_id], params[:task_id], @comment) %> |
+<%= link_to 'Back', project_task_comments_path %>

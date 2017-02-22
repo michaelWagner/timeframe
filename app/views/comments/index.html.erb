@@ -24,9 +24,9 @@
         <td><%= comment.updated_at %></td>
         <td><%= comment.author_id %></td>
         <td><%= comment.task %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', project_task_comment_path(@project, @task, comment) %></td>
+        <td><%= link_to 'Edit', edit_project_task_comment_path(params[:project_id], params[:task_id], comment) %></td>
+        <td><%= link_to 'Destroy', project_task_comment_path(@project, @task, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Comment', new_comment_path %>
+<%= link_to 'New Comment', new_project_task_comment_path %>
